@@ -45,14 +45,14 @@ SIMC currently being used (deut_simc), the coordinate system used throughout SIM
 between the hallc_replay coordinate system and deut_simc is needed.
 
 ================
-AUGUST 08 2018:
+AUGUST 22 2018:
 ================
+In the recent updates to the analyzer, the raw beam positions (gbeamx, gbeamy) in EPICS are directly read into hcana where they are converted to the Hall Coordinate 
+system in H.react.x and H.react.y variables
 
---Coordinate Transformations--
+The relevant leaf variables are:
 
-X_simc
-         
-                
+ 
                        
               
 

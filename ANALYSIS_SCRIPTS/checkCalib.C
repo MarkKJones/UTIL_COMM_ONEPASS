@@ -8,9 +8,8 @@ void checkCalib(string detector, int runNUM)
 
   gROOT->SetBatch(kTRUE);
   // TString filename = "../../ROOTfiles/hms_replay_cal_calib_1263_100000.root";
-  TString filename = "../../ROOTfiles/hms_replay_dc_calib_1161_-1.root";
-
-
+  TString filename = "../../ROOTfiles/hms_replay_dc_calib_1267_1000000flagON.root";
+ 
   //read the file and get the tree
   TFile *data_file = new TFile(filename, "READ");
   TTree *T = (TTree*)data_file->Get("T");
@@ -35,6 +34,7 @@ void checkCalib(string detector, int runNUM)
   Double_t dcTime_nbins, dcTime_xmin, dcTime_xmax;
   Double_t dcDist_nbins, dcDist_xmin, dcDist_xmax;
   Double_t dcRes_nbins, dcRes_xmin, dcRes_xmax;
+  Double_t dcRes2d_nbins, dcRes2d_xmin, dcRes2d_xmax;
 
   Double_t hodBeta_nbins, hodBeta_xmin, hodBeta_xmax;
   Double_t hodXtrk_nbins, hodXtrk_xmin, hodXtrk_xmax;  
@@ -64,6 +64,10 @@ void checkCalib(string detector, int runNUM)
   dcTime_nbins = 300;
   dcTime_xmin = -50.;
   dcTime_xmax = 250.;
+  
+  dcRes2d_nbins = 100.;
+  dcRes2d_xmin = -0.3;
+  dcRes2d_xmax = 0.3;
   
   dcRes_nbins = 100.;
   dcRes_xmin = -0.1;
@@ -246,7 +250,7 @@ void checkCalib(string detector, int runNUM)
 	      H_dcRes[npl]->GetYaxis()->CenterTitle();
 	      
 	      //2D Histos
-	      H_res_vs_wire[npl] = new TH2F(Form("2D: Residuals_vs_Wire, %s", dc_pl_names[npl].c_str()), Form("DC Residuals vs. Wire, Plane %s", dc_pl_names[npl].c_str()), nwires[npl], 0., nwires[npl], dcRes_nbins, dcRes_xmin, dcRes_xmax);
+	      H_res_vs_wire[npl] = new TH2F(Form("2D: Residuals_vs_Wire, %s", dc_pl_names[npl].c_str()), Form("DC Residuals vs. Wire, Plane %s", dc_pl_names[npl].c_str()), nwires[npl], 0., nwires[npl], dcRes2d_nbins, dcRes2d_xmin, dcRes2d_xmax);
 	      H_res_vs_wire[npl]->GetXaxis()->SetTitle("Wire Number ");
 	      H_res_vs_wire[npl]->GetXaxis()->CenterTitle();
 	      H_res_vs_wire[npl]->GetYaxis()->SetTitle("Drift Residuals (cm)");
@@ -320,7 +324,7 @@ void checkCalib(string detector, int runNUM)
   Long64_t nentries = T->GetEntries();
   
   //Loop over all entries
-  for(Long64_t i=0; i<100000; i++)
+  for(Long64_t i=0; i<1000000; i++)
     {
       
       T->GetEntry(i);  

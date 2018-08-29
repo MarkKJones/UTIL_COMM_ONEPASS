@@ -4,7 +4,7 @@
 
 
 ;positions of BPMs relative to target (from survey 2017)
-gbpm_zpos = 370.82, 224.96, 129.3 ; cm
+gbpm_zpos = 320.17, 224.81, 129.38 ; cm
 
 
 ;             Fast Raster calibration constants
