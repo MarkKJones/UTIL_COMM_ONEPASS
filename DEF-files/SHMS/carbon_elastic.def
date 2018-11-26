@@ -1,4 +1,6 @@
 block P.gtr.*
+block P.extcor.xsieve
+block P.extcor.ysieve
 block P.dc.x_fp
 block P.dc.xp_fp
 block P.dc.y_fp

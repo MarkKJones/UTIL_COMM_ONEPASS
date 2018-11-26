@@ -2,6 +2,6 @@ block T.*
 block P.dc.*
 block P.cal.etotnorm
 block P.cal.etracknorm
-block P.hgcer.npe*
+block P.hgcer.*
 block P.hod.beta*
 block P.hod.start*

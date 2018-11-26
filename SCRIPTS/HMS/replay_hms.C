@@ -1,4 +1,4 @@
-void replay_hms(Int_t RunNumber=0, Int_t MaxEvent=0,const char* ftype="dc_calib") {
+void replay_hms(Int_t RunNumber=0, Int_t MaxEvent=0,const char* ftype="matrixopt") {
 
   // Get RunNumber and MaxEvent if not provided.
   if(RunNumber == 0) {
@@ -41,7 +41,7 @@ void replay_hms(Int_t RunNumber=0, Int_t MaxEvent=0,const char* ftype="dc_calib"
 
   // Load the Hall C detector map
   gHcDetectorMap = new THcDetectorMap();
-  gHcDetectorMap->Load("MAPS/HMS/DETEC/STACK/hms_stack.map");
+  gHcDetectorMap->Load("MAPS/HMS/DETEC/STACK/hms_stack_comm18.map");
   gHcParms->Load("PARAM/HMS/GEN/h_fadc_debug.param");
 
   // Add trigger apparatus
@@ -93,8 +93,8 @@ void replay_hms(Int_t RunNumber=0, Int_t MaxEvent=0,const char* ftype="dc_calib"
   THcConfigEvtHandler* ev125 = new THcConfigEvtHandler("hconfig", "Config Event type 125");
   gHaEvtHandlers->Add(ev125);
   // Add handler for EPICS events
-  THaEpicsEvtHandler *hcepics = new THaEpicsEvtHandler("epics", "HC EPICS event type 180");
-  gHaEvtHandlers->Add(hcepics);
+  // THaEpicsEvtHandler *hcepics = new THaEpicsEvtHandler("epics", "HC EPICS event type 180");
+  //gHaEvtHandlers->Add(hcepics);
   // Add handler for scaler events
   THcScalerEvtHandler *hscaler = new THcScalerEvtHandler("H", "Hall C scaler event type 2");  
   hscaler->AddEvtType(2);
@@ -137,7 +137,8 @@ void replay_hms(Int_t RunNumber=0, Int_t MaxEvent=0,const char* ftype="dc_calib"
                                 // 2 = counter is event number
  analyzer->SetEvent(event);
  // Set EPICS event type
- analyzer->SetEpicsEvtType(180);
+ analyzer->SetEpicsEvtType(181);
+ analyzer->AddEpicsEvtType(182);
  // Define crate map
  analyzer->SetCrateMapFileName("MAPS/db_cratemap.dat");
  // Define output ROOT file
@@ -146,29 +147,14 @@ void replay_hms(Int_t RunNumber=0, Int_t MaxEvent=0,const char* ftype="dc_calib"
   TString DefTreeFile=Form("UTIL_COMM_ONEPASS/DEF-files/HMS/%s.def",ftype);
   analyzer->SetOdefFile(DefTreeFile);
   // Define cuts file
-  DefTreeFile=Form("UTIL_COMM_ONEPASS/DEF-files/HMS/%s_cuts.def",ftype);
-  analyzer->SetCutFile(DefTreeFile);  // optional
+   DefTreeFile=Form("UTIL_COMM_ONEPASS/DEF-files/HMS/%s_cuts.def",ftype);
+  DefTreeFile="UTIL_COMM_ONEPASS/DEF-files/HMS/default_cuts.def";
+    analyzer->SetCutFile(DefTreeFile);  // optional
   //
- analyzer->SetSummaryFile(Form("REPORT_OUTPUT/HMS/PRODUCTION/summary_%s_%d_%d.report", ftype, RunNumber, MaxEvent));    // optional
+  analyzer->SetSummaryFile(Form("REPORT_OUTPUT/HMS/PRODUCTION/summary_%s_%d_%d.report", ftype, RunNumber, MaxEvent));    // optional
  // Start the actual analysis.
  analyzer->Process(run);
- 
- //Determine which template file to use based on ftype user input
- TString temp_file;
- 
- if(strcmp(ftype,"hscaler") == 0)
-   { 
-     temp_file = "hscalers.template";
-   }
- else
-   {
-     temp_file="hstackana_production.template";
-   }
+ // Create report file from template.
+ analyzer->PrintReport("UTIL_COMM_ONEPASS/TEMPLATES/HMS/hstackana_production.template",Form("REPORT_OUTPUT/HMS/PRODUCTION/replay_hms_%s_%d_%d.report", ftype,RunNumber, MaxEvent));
 
-// Create report file from template.
- analyzer->PrintReport("UTIL_COMM_ONEPASS/TEMPLATES/HMS/"+temp_file,
-		       Form("REPORT_OUTPUT/HMS/PRODUCTION/replay_hms_%s_%d_%d.report", ftype,RunNumber, MaxEvent));
-  
- 
- 
 }

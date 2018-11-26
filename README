@@ -12,8 +12,8 @@ SHMS HEavy Gas has CO2 so good for pi/e separation
 1. Dec 9 , 2017 
    *Superharp scans Run 1116?
    * 3x3 raster carbon hole run 1117-1133 
-   * Detector checkout 0.5%C Run 1134
-   * Sieve checkout Raster on 0.5%C Run 1135
+   * Detector checkout 0.5%C Run 1134 angle 25.005 and pcent=1.6
+   * Sieve checkout Raster on 0.5%C Run 1135 angle 25.005 and pcent=1.6
    * Sieve checkout Raster reduced 0.5%C Run 1136 (lost Q1)
 2. Dec 10,2017
     * All quads off Carbon elastic 13.5deg Run 1138-1141
@@ -51,7 +51,7 @@ SHMS HEavy Gas has CO2 so good for pi/e separation
 6. Dec 18, 2017
    * runs 1232-1234 Carbon hole.
    * Run 1235 optics 1 target
-   * Run 1239-1240 optics 0.5% carbon sieve
+   * Run 1239-1240  0.5% carbon 
    * Runs 1255-1265 Trigger Threshold scan
    * Run 1266
    * Run 1267-1270 Defocussed tune.

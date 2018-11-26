@@ -2,6 +2,8 @@
 
 ; Cosmic flag for beta calculation
 hcosmicflag=0
+;   
+htofusinginvadc=0
 
 ; for now manually set hte FADC mode
 ;  1 == Use the pulse int - pulse ped
@@ -23,6 +25,8 @@ hhodo_AdcTimeWindowMax = 200., 200., 200., 200.
 
 ; hstart_time_center  center of allowed time window (ns)
    hstart_time_center = 32.                                                     
+; hstart_time_offset  center of allowed time window (ns)
+   hstart_time_offset = -3.8                                                     
 ; hstart_time_slop    1/2 width of time window                                  
    hstart_time_slop = 100.                                                       
 ; hscin_tdc_min       minimum tdc value in hms scin                             
@@ -30,8 +34,10 @@ hhodo_AdcTimeWindowMax = 200., 200., 200., 200.
 ; hscin_tdc_max       maximum allowed tdc value                                 
    hscin_tdc_max = 4000                                                         
 ; hscin_tdc_to_time   scin tdc time per channel                                 
+  hscin_tdc_to_time = 0.09766 ; 
+;  hscin_tdc_to_time = 0.1 ;(See Log Entry 3574348)                       
 ; tof and you figured out good values
-   htof_tolerance = 100.0
+   htof_tolerance = 3.0
 ;                                                                               
 ; hms_tof_params                                                                
 ; hnum_scin_counters, hhodo_zpos, hhodo_center_coord, hhodo_width               
@@ -39,8 +45,8 @@ hhodo_AdcTimeWindowMax = 200., 200., 200., 200.
 ;    hhodo_pos_coord and hhodo_neg_coord are not yet used                       
 ;                                                                               
      hhodo_slop     =    2.,  2.,  4.,  4.                                      
-;   
-htofusinginvadc=0
+     hhodo_slop     =    12.,  12.,  14.,  14.                                      
+;
 hhodo_pos_ped_limit = 1000,1000,1000,1000,1000,1000,1000,1000                   
                       1000,1000,1000,1000,1000,1000,1000,1000                   
                       1000,1000,1000,1000,1000,1000,1000,1000                   

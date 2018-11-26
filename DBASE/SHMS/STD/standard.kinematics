@@ -106,24 +106,84 @@ ppcentral = 2.46568
 ptheta_lab = 9.995
 ppcentral = 2.50971
 
+1657
+ptheta_lab = 7.949
+ppcentral = 2.517
+1658
+ptheta_lab = 7.949
+ppcentral = 2.460
+1659
+ptheta_lab = 7.949
+ppcentral = 2.407
+1660
+ptheta_lab = 7.949
+ppcentral = 2.355
+1661
+ptheta_lab = 7.949
+ppcentral = 2.306
+1662
+ptheta_lab = 7.949
+ppcentral = 2.259
+1663
+ptheta_lab = 7.949
+ppcentral = 2.214
+1664
+ptheta_lab = 7.949
+ppcentral = 2.171
+1665
+ptheta_lab = 7.949
+ppcentral = 2.129
+1667
+ptheta_lab = 7.949
+ppcentral = 2.089
+1668
+ptheta_lab = 7.949
+ppcentral = 2.050
+1669
+ptheta_lab = 7.949
+ppcentral = 2.013
+1670
+ptheta_lab = 7.949
+ppcentral = 1.977
+1671
+ptheta_lab = 7.949
+ppcentral = 1.942
+1672
+ptheta_lab = 7.949
+ppcentral = 1.909
+1673
+ptheta_lab = 7.949
+ppcentral = 1.876
+1674
+ptheta_lab = 7.949
+ppcentral = 1.845
+1675
+ptheta_lab = 7.949
+ppcentral = 1.815
+1676
+ptheta_lab = 7.949
+ppcentral = 1.785
+
+
+
 1689
 gpbeam = 2.221
 gtargmass_amu=1.00794
 ppartmass = 0.00051099
 ptheta_lab = 7.5
-ppcentral = 2.177*.982
+ppcentral = 2.177*1.
 1689
 gpbeam = 2.221
 gtargmass_amu= 26.98
 ppartmass = 0.00051099
 ptheta_lab = 7.5
-ppcentral = 2.177*.982
+ppcentral = 2.177*1.
 1691
 gpbeam = 2.221
 gtargmass_amu= 1.00794
 ppartmass = 0.00051099
 ptheta_lab = 7.5
-ppcentral = 2.177*.982
+ppcentral = 2.177*1.
 
 1703-1705
 gpbeam = 2.221

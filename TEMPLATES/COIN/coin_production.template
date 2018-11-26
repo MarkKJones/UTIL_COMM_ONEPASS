@@ -1,5 +1,7 @@
 Run #: {gen_run_number}
 
+paero_pos_gain : {paero_pos_gain(0)}
+
 **************************
 * General Run Information
 **************************
